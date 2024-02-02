@@ -9,27 +9,47 @@
       body {
         font-family: monospace;
       }
+
+      h2,
+      a {
+        color: #999999;
+      }
+      h1 {
+        font-size: 28px !important;
+        font-weight: bold !important;
+      }
     </style>
   </head>
-  <body class="flex items-center justify-center h-screen">
+  <body>
     <!-- Made by danillpzz -->
-    <form id="lform" class="form" action="/links" method="post" onsubmit="submitForm()">
-      <h1 class="text-2xl font-bold">Link Shorter</h1>
-      <h2 class="text-[#999999]">Enter your link into the input to short it.</h2>
-      <div class="mt-6">
-        <input
-          type="url"
-          id="url"
-          class="value w-[240px] outline mr-3"
-          placeholder="https://example.com"
-          required
-        />
-        <button type="submit" onclick="submitForm()" class=" w-12 outline">Submit</button>
-      </div>
-      <h2 class="text-[#999999] mt-4"><%= objects.url %></h2>
-    </form>
+    <div class="flex items-center justify-center h-[920px]">
+      <form id="lform" class="form" action="/links" method="post" onsubmit="submitForm()">
+        <h1>Link Shorter</h1>
+        <h2>Enter your link into the input to short it.</h2>
+        <div class="mt-6">
+          <input
+            type="url"
+            id="url"
+            class="value w-[240px] outline mr-3"
+            placeholder="https://example.com"
+            required
+          />
+          <button type="submit" onclick="submitForm()" class="w-12 outline">Submit</button>
+        </div>
+        <div class="mt-4">
+          <a href="<%= objects.url %>" target="_blank"><%= objects.url %></a>
+        </div>
+      </form>
+    </div>
+    <div class="footer flex items-center justify-center">
+      <h2>
+        <a href="https://github.com/danilppzz/Link-Shorter" target="_blank">github</a> ▪ by
+        <a href="https://danilppzz.dev/" target="_blank">danilppzz</a>
+      </h2>
+    </div>
+
     <script>
-        function submitForm() {
+      function submitForm() {
         var form = document.getElementById("lform");
         var urlInput = document.getElementById("url");
 
@@ -42,6 +62,6 @@
         // Envía el formulario
         form.submit();
       }
-      </script>
+    </script>
   </body>
 </html>
