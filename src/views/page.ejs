@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Shorter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center h-screen">
+    <!-- Made by danillpzz -->
+    <form id="lform" class="form" action="/links" method="post" onsubmit="submitForm()">
+      <h1 class="text-2xl font-bold">Link Shorter</h1>
+      <h2 class="text-[#999999]">Enter your link into the input to short it.</h2>
+      <div class="mt-6">
+        <input
+          type="url"
+          id="url"
+          class="value w-[240px] outline mr-3"
+          placeholder="https://example.com"
+          required
+        />
+        <button type="submit" onclick="submitForm()" class=" w-12 outline">Submit</button>
+      </div>
+      <h2 class="text-[#999999] mt-4"><%= objects.url %></h2>
+    </form>
+    <script>
+        function submitForm() {
+        var form = document.getElementById("lform");
+        var urlInput = document.getElementById("url");
+
+        // Obtén el valor del campo de entrada
+        var urlValue = urlInput.value;
+
+        // Agrega el parámetro de consulta a la URL de acción
+        form.action = "/links?l=" + encodeURIComponent(urlValue);
+
+        // Envía el formulario
+        form.submit();
+      }
+      </script>
+  </body>
+</html>
