@@ -2,7 +2,6 @@ import Express from "express";
 import { searchLink, searchAllLink } from "./sqlite3.js";
 import { links } from "./router/shorter.js";
 
-import * as path from "node:path";
 import * as url from "node:url";
 
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
